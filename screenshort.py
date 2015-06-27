@@ -82,6 +82,7 @@ def find_font_by_name(path, name):
 	name: font name based on filename without extension.
 	"""
 	# Validate path.
+	path = os.path.expanduser(path)
 	if not os.path.isdir(path): return None
 	# Traverse.
 	found_fonts = [f for f in os.listdir(path) if os.path.splitext(f)[0] == name]
@@ -128,7 +129,7 @@ def validate_color(color,default,color_type):
 
 ##### Execution
 
-def tweet_shot(
+def screenshort(
 	main_text,
 	secondary_text=None,
 	width=default_width,
@@ -147,7 +148,7 @@ def tweet_shot(
 	output=None
 ):
 	"""
-	Generate a tweet shot and save to the specified path.
+	Generate a screenshort and save to the specified path.
 	"""
 
 	### Input Validation
@@ -272,10 +273,10 @@ def tweet_shot(
 ##### Standalone Execution
 
 def main():
-	"""Parse input arguments and pass to tweet_shot().
+	"""Parse input arguments and pass to screenshort().
 	"""
 	# Set up argument parser.
-	parser = argparse.ArgumentParser(description='Generate a "tweet shot" image.')
+	parser = argparse.ArgumentParser(description='Generate a "screenshort" image.')
 	# Text elements.
 	parser.add_argument('main_text',type=str,help='main image text')
 	parser.add_argument('secondary_text',nargs='?',type=str,help='secondary image text (optional)')
@@ -303,8 +304,8 @@ def main():
 	group_fonts.add_argument('--secondary_font_spacing',metavar='PIXELS',dest='minor_font_spacing',type=int,default=default_font_spacing_minor,help='inter-line spacing for secondary text (default: %d)'%default_font_spacing_minor)
 	# Parse arguments.
 	args = parser.parse_args()
-	# Simply pass params to tweet_shot() method.
-	tweet_shot(**vars(args))
+	# Simply pass params to screenshort() method.
+	screenshort(**vars(args))
 
 if __name__ == '__main__':
 	main()
