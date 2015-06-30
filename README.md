@@ -16,10 +16,11 @@ Run `screenshort.py` to use. The first input will be used as your image’s prim
   --main_text_color=black \
   --main_font_name='Hoefler Text' \
   --main_font_size=32 \
-  --secondary_text_color=#999
+  --secondary_text_color=#999 \
+  --output screenshort.png
 ```
 
-`pyscreenshort` will automatically wrap text where appropriate. To manually include newline characters, use syntax like above (if using bash) or wrap your text in double quotation marks.
+The result of the above will be written to a PNG file. `pyscreenshort` will automatically wrap text where appropriate. To manually include newline characters, use syntax like above (if using bash) or wrap your text in double quotation marks.
 
 Finally, run `screenshort.py -h` for a list of additional formatting options, including image size, colors, and fonts.
 
