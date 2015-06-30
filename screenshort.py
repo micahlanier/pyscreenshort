@@ -47,9 +47,9 @@ def process_text(text, font, width_limit):
 	"""Reformat text as a set of appropriate-length lines given a font and width limit. Return a list of strings (one line per entry).
 
 	Keyword arguments:
-	text: raw text to format.
-	font: PIL font to use for formatting.
-	width_limit: width limit of text area in pixels.
+		text: raw text to format.
+		font: PIL font to use for formatting.
+		width_limit: width limit of text area in pixels.
 	"""
 	# Tokenize each line.
 	tokens = [re.sub(ur'\s+',' ',line.strip()).split(' ') for line in text.strip().split('\n')]
@@ -78,8 +78,8 @@ def find_font_by_name(path, name):
 	"""Find a font at a given path and return the whole path or None (if not found).
 
 	Keyword arguments:
-	path: directory to search.
-	name: font name based on filename without extension.
+		path: directory to search.
+		name: font name based on filename without extension.
 	"""
 	# Validate path.
 	path = os.path.expanduser(path)
@@ -92,13 +92,13 @@ def draw_text(image, lines, x, y, spacing, font, color):
 	"""Draw lines of text on a given image.
 
 	Keyword arguments:
-	image: PIL.Image on which to draw text.
-	lines: list of strings (each one line).
-	x: horizontal location to begin drawing text.
-	y: vertical location to begin drawing text.
-	spacing: spacing between lines in pixels.
-	font: PIL ImageFont object.
-	color: PIL.ImageColor name (e.g., 'red', 'darkgreen', '#ffffff').
+		image: PIL.Image on which to draw text.
+		lines: list of strings (each one line).
+		x: horizontal location to begin drawing text.
+		y: vertical location to begin drawing text.
+		spacing: spacing between lines in pixels.
+		font: PIL ImageFont object.
+		color: PIL.ImageColor name (e.g., 'red', 'darkgreen', '#ffffff').
 	"""
 	# Draw the main text.
 	draw = ImageDraw.Draw(image)
@@ -115,9 +115,9 @@ def validate_color(color,default,color_type):
 	"""Validate a color against known PIL values. Return the validated color if valid; otherwise return a default.
 
 	Keyword arguments:
-	color: color to test.
-	default: default color string value if color is invalid.
-	color_type: string name for color type, used for alerting users of defaults.
+		color: color to test.
+		default: default color string value if color is invalid.
+		color_type: string name for color type, used for alerting users of defaults.
 	"""
 	# Use exception handling. If a given color throws an error, we may return false.
 	try:
@@ -147,9 +147,7 @@ def screenshort(
 	minor_text_color=None,
 	output=None
 ):
-	"""
-	Generate a screenshort and save to the specified path.
-	"""
+	"""Generate a screenshort and save to the specified path.""""
 
 	### Input Validation
 
@@ -220,7 +218,7 @@ def screenshort(
 	line_height_major = sum(font_major.getmetrics())
 	line_height_minor = sum(font_minor.getmetrics())
 
-	# Get height of each text element 
+	# Get height of each text element
 	text_lines_major = process_text(text_major, font_major, render_text_width)
 	if use_minor_text:
 		# If there is secondary text, process it.
@@ -273,8 +271,7 @@ def screenshort(
 ##### Standalone Execution
 
 def main():
-	"""Parse input arguments and pass to screenshort().
-	"""
+	"""Parse input arguments and pass to screenshort()."""
 	# Set up argument parser.
 	parser = argparse.ArgumentParser(description='Generate a "screenshort" image.')
 	# Text elements.
