@@ -147,7 +147,7 @@ def screenshort(
 	minor_text_color=None,
 	output=None
 ):
-	"""Generate a screenshort and save to the specified path.""""
+	"""Generate a screenshort and save to the specified path."""
 
 	### Input Validation
 
